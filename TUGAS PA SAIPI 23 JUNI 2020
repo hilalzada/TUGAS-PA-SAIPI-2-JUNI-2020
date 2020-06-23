@@ -1,0 +1,86 @@
+#include <iostream>
+#include <string>
+#include <windows.h>
+
+using namespace std;
+
+string nama, kampus, nim;
+char pilihan;
+int umur;
+float nilai;
+bool hasil, hasil2;
+double a, b, c, d, e;
+
+void program(){
+	
+	system("cls");
+
+	cout << "\nMasukan  Asal kampus anda [Nama]\t>> "	; cin >> kampus;
+	cout << "\nMasukan Umur anda [angka]\t>> "	; cin >> umur;
+	cout << "\nMasukan NIM\t\t\t>> "		; cin >> nim;
+	
+	system("cls");
+	
+	cout << "\nmasukan jarak yang anda tempuh saat tahun 2015, Dalam satuan Meter "				<< "\t\t\t>> "	; cin >> a;
+	cout << "\nmasukan jarak yang anda tempuh saat tahun 2016, Dalam satuan Meter"			<< "\t\t\t>> "	; cin >> b;
+	cout << "\nmasukan jarak yang anda tempuh saat tahun 2017, Dalam satuan Meter"					<< "\t\t\t\t>> "; cin >> c;
+	cout << "\nmasukan jarak yang anda tempuh saat tahun 2018, Dalam satuan Meter"			<< "\t\t\t>> "	; cin >> d;
+	cout << "\nmasukan jarak yang anda tempuh saat tahun 2019, Dalam satuan Meter"				<< "\t\t\t\t>> "; cin >> e;
+	
+	nilai = ((a + b + c + d + e ) / 5);
+	
+	hasil2 = nilai <= 1000;
+	hasil = nilai >= 1000;
+	
+	cout << "\n\n*NAMA\t: " << nama;
+	cout << "\t*NIM\t: " << nim;
+	cout << "\t*ASAL KAMPUS\t: " << kampus;
+	cout << "\t*UMUR\t: " << umur << "\n\n";
+	
+	if (nilai <= 100){
+		cout << "Anda Mendapatkan Predikat E Dengan jarak rata-rata\t: "	<< nilai << "\n";
+	}else if (nilai <= 300){
+		cout << "Anda Mendapatkan Predikat D Dengan jarak rata-rata\t: "	<< nilai << "\n";
+	}else if (nilai <= 500){
+		cout << "Anda Mendapatkan Predikat C Dengan jarak rata-rata\t: "	<< nilai << "\n";
+	}else if (nilai <= 1000){
+		cout << "Anda Mendapatkan Predikat B Dengan jarak rata-rata\t: "	<< nilai << "\n";
+	}else if (nilai <= 5000){
+		cout << "Anda Mendapatkan Predikat A Dengan jarak rata-rata\t: "	<< nilai << "\n";
+	}else{
+		cout << "pilihan anda tidak valid!\n";
+	}
+	
+	if (hasil){
+		cout << "\nAnda adalah pelari profesional\n";
+	}
+	else if (hasil2){
+		cout << "\nMaaf anda harus berlatih lebih keras\n";
+	}
+}
+
+int main(){
+	
+	cout << "Selamat Datang, Siapa Nama Anda ?\t>> "; getline (cin, nama);
+	system("cls");
+	
+	awal :
+		cout << "Halo, ' " << nama << " ' Apakah kamu ingin tau seberapa hebat kamu  dalam perlombaan maraton tahunan? [Y / N]\t>> "; cin >> pilihan;
+	
+	while(true){
+		
+		if (pilihan == 'y' || pilihan == 'Y'){
+			program();
+			break;
+		}
+		else if (pilihan == 'n' || pilihan == 'N'){
+			cout << "\nTerima Kasih Atas Kunjungannya...";
+			break;
+		}
+		else{
+			cout << "\nPilihan Anda Tidak Valid!\n"; goto awal;
+		}
+	}
+	
+	return 0;
+}
